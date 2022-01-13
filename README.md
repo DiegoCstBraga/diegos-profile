@@ -1,2 +1,3 @@
-# diegos-profile
-A simple website displaying essential informations about me
+# Diegos-profile
+
+A simple website displaying essential information about me

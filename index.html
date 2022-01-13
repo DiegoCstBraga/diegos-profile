@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="./src/styles/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet" />
+
+  <title>Diego's Summary</title>
+</head>
+
+<body>
+  <header>
+    <img class="profile-pic" src="https://avatars.githubusercontent.com/u/50476075?v=4"
+      alt="Foto de perfil de Diego Braga" />
+  </header>
+
+  <main>
+    <p>
+      Meu nome é Diego Braga, tenho <span id="idade"></span> anos e sou
+      Desenvolvedor Front End.
+    </p>
+
+    <p>
+      Para saber mais sobre mim, aqui está meu
+      <a href="./src/download/diegos-curriculum.pdf" download="Dev Front End - Diego da Costa Braga">currículo</a>,
+      <a href="https://www.linkedin.com/in/diegocstbraga/" target="_blank">linkedin</a>
+      e <a href="https://github.com/DiegoCstBraga" target="_blank">github</a>.
+    </p>
+
+    <p>
+      Entre em contato comigo por
+      <a href="mailto:diego.cstbraga@gmail.com" target="_blank">e-mail</a> ou
+      via
+      <a href="https://api.whatsapp.com/send?phone=5513997860420&text=Olá, Diego! Acessei seu site e tenho interesse em seu perfil. Vamos conversar?"
+        target="_blank">whatsapp</a>.
+    </p>
+  </main>
+
+  <footer>Site desenvolvido com ❤ por <strong>Diego Braga</strong></footer>
+
+  <script>
+    let elementIdade = window.document.querySelector('span#idade')
+
+    let birthDate = '2000-11-18'
+
+    function getAge(dateString) {
+      let today = new Date()
+      let birthDate = new Date(dateString)
+
+      let age = today.getFullYear() - birthDate.getFullYear()
+      let month = today.getMonth() - birthDate.getMonth()
+
+      if (
+        month < 0 ||
+        (month === 0 && today.getDate() < birthDate.getDate())
+      ) {
+        age--
+      }
+      return age
+    }
+
+    let currentAge = getAge(birthDate)
+    elementIdade.innerText = currentAge
+  </script>
+</body>
+
+</html>
