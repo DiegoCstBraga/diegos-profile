@@ -1,73 +1,118 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="X-UA-Compatible"
+      content="IE=edge"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diego's Summary</title>
 
-  <link rel="stylesheet" href="./src/styles/main.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="./src/assets/favicon.ico"
+    />
+    <link
+      rel="stylesheet"
+      href="./src/styles/main.css"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-  <title>Diego's Summary</title>
-</head>
+  <body>
+    <header>
+      <img
+        class="profile-pic"
+        src="https://avatars.githubusercontent.com/u/50476075?v=4"
+        alt="A photo of a white man, with dark eyes and hair, using a headset and smiling for the camera"
+      />
+    </header>
 
-<body>
-  <header>
-    <img class="profile-pic" src="https://avatars.githubusercontent.com/u/50476075?v=4"
-      alt="Foto de perfil de Diego Braga" />
-  </header>
+    <main>
+      <p>
+        Hello there! My name is Diego Braga, I am <span id="age"></span> years
+        old and I'm a Software Developer
+      </p>
 
-  <main>
-    <p>
-      Meu nome é Diego Braga, tenho <span id="idade"></span> anos e sou
-      Desenvolvedor Front End.
-    </p>
+      <p>
+        To know more about me, check out these links:
+        <a
+          href="./src/download/cv.pdf"
+          download="Software Developer - Diego da Costa Braga"
+          >Curriculum</a
+        >,
+        <a
+          href="https://www.linkedin.com/in/diegocstbraga/"
+          target="_blank"
+          >LinkedIn</a
+        >
+        and
+        <a
+          href="https://github.com/DiegoCstBraga"
+          target="_blank"
+          >Github</a
+        >
+      </p>
 
-    <p>
-      Para saber mais sobre mim, aqui está meu
-      <a href="./src/download/curriculum.pdf" download="Dev Front End - Diego da Costa Braga">currículo</a>,
-      <a href="https://www.linkedin.com/in/diegocstbraga/" target="_blank">linkedin</a>
-      e <a href="https://github.com/DiegoCstBraga" target="_blank">github</a>.
-    </p>
+      <p>
+        You can reach me by
+        <a
+          href="mailto:diego.cstbraga@gmail.com"
+          target="_blank"
+          >e-mail</a
+        >
+        or
+        <a
+          href="https://api.whatsapp.com/send?phone=5513997860420&text=Hello, Diego! I accessed your website and have I'm interested in your skills. Let's talk about it?"
+          target="_blank"
+          >whatsapp</a
+        >.
+      </p>
+    </main>
 
-    <p>
-      Entre em contato comigo por
-      <a href="mailto:diego.cstbraga@gmail.com" target="_blank">e-mail</a> ou
-      via
-      <a href="https://api.whatsapp.com/send?phone=5513997860420&text=Olá, Diego! Acessei seu site e tenho interesse em seu perfil. Vamos conversar?"
-        target="_blank">whatsapp</a>.
-    </p>
-  </main>
+    <footer>Developed with ❤ by <strong>Diego Braga</strong></footer>
 
-  <footer>Site desenvolvido com ❤ por <strong>Diego Braga</strong></footer>
+    <script>
+      let elementAge = window.document.querySelector('span#age');
 
-  <script>
-    let elementIdade = window.document.querySelector('span#idade')
+      let birthDate = '2000-11-18';
 
-    let birthDate = '2000-11-18'
+      function getAge(dateString) {
+        let today = new Date();
+        let birthDate = new Date(dateString);
 
-    function getAge(dateString) {
-      let today = new Date()
-      let birthDate = new Date(dateString)
+        let age = today.getFullYear() - birthDate.getFullYear();
+        let month = today.getMonth() - birthDate.getMonth();
 
-      let age = today.getFullYear() - birthDate.getFullYear()
-      let month = today.getMonth() - birthDate.getMonth()
-
-      if (
-        month < 0 ||
-        (month === 0 && today.getDate() < birthDate.getDate())
-      ) {
-        age--
+        if (
+          month < 0 ||
+          (month === 0 && today.getDate() < birthDate.getDate())
+        ) {
+          age--;
+        }
+        return age;
       }
-      return age
-    }
 
-    let currentAge = getAge(birthDate)
-    elementIdade.innerText = currentAge
-  </script>
-</body>
-
+      let currentAge = getAge(birthDate);
+      elementAge.innerText = currentAge;
+    </script>
+  </body>
 </html>
